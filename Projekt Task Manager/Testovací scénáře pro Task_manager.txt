@@ -1,0 +1,201 @@
+příklad
+TC01: Výběr platné možnosti z menu
+    Popis: Ověření, že volba čísla 1 v hlavním menu správně spustí funkci pridat_ukol
+    Vstupní podmínky: Program zobrazuje hlavní menu.
+    Kroky testu: 
+        1. Spusťte program.
+        2. Ověřte, že se zobrazuje hlavní menu s nabídkou voleb (např. "1 - Přidat úkol", "2 - Zobrazit úkoly" atd.).
+        3. Zadejte číslo 1 a potvrďte stisknutím klávesy Enter.
+    Očekávaný výsledek: Program spustí funkci pridat_ukol().
+    Skutečný výsledek: Funkce pridat_ukol() byla spuštěna a program zobrazil výzvu k zadání nového úkolu
+    Stav: Pass
+    Poznámky: Tento případ je důležitý, protože ověřuje základní navigaci z hlavního menu a funkčnost jedné z klíčových funkcí programu.
+
+
+
+Testy funkce hlavní_menu ()
+    T_HM1: Výběr neplatné možnosti (int)
+        Popis: Ověření že program správně reaguje na neočekávané vstupy
+        Vstupní podmínky: Po spuštění programu je zobrazeno hlavní menu a program očekává vstup
+        Kroky testu:
+            1. Spustit program
+            2. Zadat "0" a potvrdit klávesou "Enter"
+        Očekávaný výsledek: Program zobrazí hlášku neočekávaního vstupu ("Taková možnost neexistuje, zkus to znovu."), zobrazí znovu hlavní menu a očekává nový vstup.
+        Skutečný výsledek: Program vrátil "Taková možnost neexistuje, zkus to znovu." a zobrazil znovu hlavní menu a očekává nový vstup
+        Stav ( Pass / Fail ): PASS
+        Poznámky: Je důležitá komunikace programu s uživatelem, pokud dojde k neočekávanému vstupu
+
+    T_HM2: Výběr neplatné možnosti 2 (str)
+        Popis: Ověření že program správně reaguje na neočekávané vstupy
+        Vstupní podmínky: Po spuštění programu je zobrazeno hlavní menu a program očekává vstup
+        Kroky testu:
+            1. Spustit program
+            2. Zadat "null" a potvrdit klávesou "Enter"
+        Očekávaný výsledek: Program zobrazí hlášku neočekávaního vstupu ("Taková možnost neexistuje, zkus to znovu."), zobrazí znovu hlavní menu a očekává nový vstup.
+        Skutečný výsledek: Program vrátil "Taková možnost neexistuje, zkus to znovu.", zobrazil znovu hlavní menu a očekává nový vstup
+        Stav ( Pass / Fail ): PASS
+        Poznámky: Je důležitá komunikace programu s uživatelem, pokud dojde k neočekávanému vstupu
+
+    T_HM3: Ukončení programu
+        Popis: Ověření že je možné program ukončit pomocí hlavního menu
+        Vstupní podmínky: Po spuštění programu je zobrazeno hlavní menu a program očekává vstup
+        Kroky testu:
+            1. Spustit program
+            2. Zadat 4 a potvrdit klávesou "Enter"
+        Očekávaný výsledek: Zobrazí se hláška "Konec programu." a program bude ukončen.
+        Skutečný výsledek: Zobrazila se hláška "Konec programu." a program byl ukončen.
+        Stav ( Pass / Fail ): PASS
+        Poznámky: Funkce uzavření programu pomocí hlavního menu je důležitá např. pro ty kdo nepracují s myší
+
+Testy funkce pridat_ukol()
+    T_PU1: Zadání úkolu
+        Popis: Ověření zda uživatel může zadat úkol do programu
+        Vstupní Po spuštění programu je zobrazeno hlavní menu a program očekává vstup.
+        Kroky testu:
+            1. Spustit programu
+            2. Zadat 1 a potvrdit "Enter"
+            3. Zkontrolovat že program očekává nový vstup "Zadejte název úkolu:"
+            4. Zadat název "úkol 1" a potvrdit klávesou "enter"
+            5. Zkontrolovat že program očekává nový vstup "Zadejte popis úkolu:"
+            6. Zadat popis "popis 1" a potvrdit klávesou "enter"
+        Očekávaný výsledek: Zobrazí se hláška "Úkol 'úkol 1' byl přidán do seznamu úkolů.", znovu se zobrazí hlavní menu a program očekává nový vstup.
+        Skutečný výsledek: Zobrazila se hláška "Úkol 'úkol 1' byl přidán do seznamu úkolů.", zobrazilo se hlavní menu a program očekává nový vstup.
+        Stav ( Pass / Fail ): PASS
+        Poznámky: program musí splňovat základní požadavky zadání
+
+    T_PU2: Prázné jméno
+        Popis: Ověření zda uživatel může zadat úkol do programu, když nevyplnil jméno úkolu
+        Vstupní Po spuštění programu je zobrazeno hlavní menu a program očekává vstup.
+        Kroky testu:
+            1. Spustit programu
+            2. Zadat 1 a potvrdit "Enter"
+            3. Nechat pole "Zadejte název úkolu:" prázdné a potvrdit klávesou "enter"
+        Očekávaný výsledek: Zobrazí se hláška "Název úkolu nesmí být prázdný!", znovu se zobrazí "Zadejte název úkolu:" a program očekává nový vstup.
+        Skutečný výsledek: Zobrazila se hláška "Název úkolu nesmí být prázdný!", znovu se zobrazilo "Zadejte název úkolu:" a program očekává nový vstup.
+        Stav ( Pass / Fail ): PASS
+        Poznámky: Je důležitá komunikace programu s uživatelem, pokud dojde k neočekávanému vstupu
+
+    T_PU3: Prázný popis
+        Popis: Ověření zda uživatel může zadat úkol do programu, když nevyplnil jméno úkolu
+        Vstupní Po spuštění programu je zobrazeno hlavní menu a program očekává vstup.
+        Kroky testu:
+            1. Spustit programu
+            2. Zadat 1 a potvrdit "Enter"
+            3. Zadat název "úkol 1" a potvrdit klávesou "enter"
+            4. Nechat pole "Zadejte popis úkolu:" prázdné a potvrdit klávesou "enter"
+        Očekávaný výsledek: Zobrazí se hláška "Popis úkolu nesmí být prázdný!", znovu se zobrazí "Zadejte popis úkolu:" a program očekává nový vstup.
+        Skutečný výsledek: Namísto "Zadejte popis úkolu:" se zobrazilo "Zadejte název úkolu:", uživatel je nucen znovu zadat název úkolu.
+        Stav ( Pass / Fail ): FAIL
+        Poznámky: Pro uživatele by mohlo být pohodlnější pokud by nemusel v takové situaci znovu zadávat název úkolu  
+
+    T_PU4: Uložení úkolu v seznamu
+        Popis: Ověření zda zadaný úkol byl uložen do seznamu úkolů
+        Vstupní Po spuštění programu je zobrazeno hlavní menu a program očekává vstup.
+        Kroky testu:
+            1. Spustit programu
+            2. Zadat 1 a potvrdit "Enter"
+            4. Zadat název "úkol 10" a potvrdit klávesou "enter"
+            6. Zadat popis "popis 10" a potvrdit klávesou "enter"
+            7. Zadat 2 a potvrdit klávesou "Enter"
+        Očekávaný výsledek: Zobrazí se seznam úkolů, kde na posledním místě je úkol s názvem "úkol 10" a s popisem "popis 10"
+        Skutečný výsledek: Zobrazil se seznam kde na posledním místě by úkol: úkol 10 - popis 10
+        Stav ( Pass / Fail ): PASS
+        Poznámky: program musí splňovat základní požadavky zadání
+     
+Testy funkce zobrazit_ukoly ()
+    T_ZU1: Zobrazení seznamu úkolů (prázdný seznam)
+        Popis: Ověření zda je fce zobrazit_ukoly schopna pracovat s prázdným seznamem
+        Vstupní podmínky: Po spuštění programu je zobrazeno hlavní menu a program očekává vstup. Seznam úkolů je prázdný.
+        Kroky testu:
+            1. Spustit program
+            2. Zadat "2" a potvrdit klávesou "Enter"
+        Očekávaný výsledek: Zobrazí se hláška "Žádné úkoly nebyly nalezeny.", znovu se zobrazí hlavní menu a program očekává nový vstup.
+        Skutečný výsledek: Zobrazila se hláška "Žádné úkoly nebyly nalezeny.", zobrazilo se hlavní menu a program očekává nový vstup.
+        Stav ( Pass / Fail ): PASS
+        Poznámky: 
+
+    T_ZU2: Zobrazení seznamu úkolů
+        Popis: Ověření zda fce zobrazit_ukoly splňuje požadavky zadání
+        Vstupní podmínky: Po spuštění programu je zobrazeno hlavní menu a program očekává vstup. V seznamu je zadán minimálně jeden úkol.
+        Kroky testu:
+            1. Spustit program
+            2. Zadat "2" a potvrdit klávesou "Enter"
+        Očekávaný výsledek: Zobrazí se seznam úkolů ve formátu "1. úkol 1 - popis 1", znovu se zobrazí hlavní menu a program očekává nový vstup.
+        Skutečný výsledek: Zobrazil se seznam úkolů ve formátu "1. úkol 1 - popis 1", zobrazilo se hlavní menu a program očekává nový vstup.
+        Stav ( Pass / Fail ): PASS
+        Poznámky: 
+    
+    T_ZU3: Indexace úkolů
+        Popis: Ověření zda v seznamu funguje správně indexace
+        Vstupní podmínky: Po spuštění programu je zobrazeno hlavní menu a program očekává vstup. V seznamu jsou zadány minimálně tři úkoly.
+        Kroky testu:
+            1. Spustit program
+            2. Zadat "2" a potvrdit klávesou "Enter"
+        Očekávaný výsledek: Zobrazí se seznam úkolů ve formátu "1. úkol 1 - popis 1". Úkoly jsou v seznamu očíslované indexem od 1 výše, podle počtu úkolů.
+        Skutečný výsledek: Úkoly jsou v seznamu očíslované indexem od 1 výše, podle počtu úkolů.
+        Stav ( Pass / Fail ): PASS
+        Poznámky: indexace je důležitá pro identifikaci úkolů v rámci programu
+              
+Testy funkce odstranit_ukol ()
+    T_OU3: Odstranění úkolu ze seznamu (prázdný seznam)
+        Popis: Ověření zda je fce odstranit_ukol schopna pracovat s prázdným seznamem
+        Vstupní podmínky: Po spuštění programu je zobrazeno hlavní menu a program očekává vstup. Seznam úkolů je prázdný.
+        Kroky testu:
+            1. Spustit program
+            2. Zadat "3" a potvrdit klávesou "Enter"
+        Očekávaný výsledek: Zobrazí se hláška "Seznam úkolů je prázdný. Není co mazat.", znovu se zobrazí hlavní menu a program očekává nový vstup.
+        Skutečný výsledek: Zobrazila se hláška "Seznam úkolů je prázdný. Není co mazat.", zobrazilo se hlavní menu a program očekává nový vstup.
+        Stav ( Pass / Fail ): PASS
+        Poznámky: 
+
+    T_OU4: Odstranění úkolu ze seznamu
+        Popis: Ověření zda fce odstranit_ukol splňuje požadavky zadání
+        Vstupní podmínky: Po spuštění programu je zobrazeno hlavní menu a program očekává vstup. Stav testu T_OU3 je PASS. V seznamu je zadán minimálně jeden úkol.
+        Kroky testu:
+            1. Spustit program
+            2. Zadat "3" a potvrdit klávesou "Enter"
+            3. Zkontrolovat, že se zobrazil seznam úkolů, hláška "Zadej číslo úkolu, který chceš odstranit:" a program očekává vstup
+            4. Zadat "1" a potvrdit klávesou "Enter"
+            5. Zkontrolovat že se zobrazila hláška "Úkol 'Název úkolu' byl odstraněn.", zobrazilo se hlavní menu a program očekává nový vstup.
+            6. Zadat "3" a potvrdit klávesou "Enter"
+        Očekávaný výsledek: Zobrazí se hláška "Seznam úkolů je prázdný. Není co mazat.", znovu se zobrazí hlavní menu a program očekává nový vstup.
+        Skutečný výsledek: Zobrazila se hláška "Seznam úkolů je prázdný. Není co mazat.", zobrazilo se hlavní menu a program očekává nový vstup.
+        Stav ( Pass / Fail ): PASS
+        Poznámky: program musí splňovat základní požadavky zadání
+
+    T_OU5: Výběr neplatného indexu úkolu (int)
+        Popis: Ověření že program správně reaguje na neočekávané vstupy
+        Vstupní podmínky: Po spuštění programu je zobrazeno hlavní menu a program očekává vstup. V seznamu je zadán minimálně jeden úkol.
+        Kroky testu:
+            1. Spustit program
+            2. Zadat "3" a potvrdit klávesou "Enter"
+            3. Zadat "0" a potvrdit klávesou "Enter"
+        Očekávaný výsledek: Zobrazí se hláška "V seznamu neexistuje úkol s číslem 0.", znovu se zobrazí hlavní menu a program očekává nový vstup.
+        Skutečný výsledek: Zobrazila se hláška "V seznamu neexistuje úkol s číslem 0.", zobrazilo se hlavní menu a program očekává nový vstup.
+        Stav ( Pass / Fail ): PASS
+        Poznámky: program musí správně reagovat na neočekávané vstupy
+
+    T_OU6: Výběr neplatného indexu úkolu 2 (flt)
+        Popis: Ověření že program správně reaguje na neočekávané vstupy
+        Vstupní podmínky: Po spuštění programu je zobrazeno hlavní menu a program očekává vstup. V seznamu je zadán minimálně jeden úkol.
+        Kroky testu:
+            1. Spustit program
+            2. Zadat "3" a potvrdit klávesou "Enter"
+            3. Zadat "89.66" a potvrdit klávesou "Enter"
+        Očekávaný výsledek: Zobrazí se hláška "Zadej prosím platné číslo.", znovu se zobrazí hlavní menu a program očekává nový vstup.
+        Skutečný výsledek: Zobrazila se hláška "Zadej prosím platné číslo.", zobrazilo se hlavní menu a program očekává nový vstup.
+        Stav ( Pass / Fail ): PASS
+        Poznámky: program musí správně reagovat na neočekávané vstupy
+
+    T_OU7: Výběr neplatného indexu úkolu 3 (str)
+        Popis: Ověření že program správně reaguje na neočekávané vstupy
+        Vstupní podmínky: Po spuštění programu je zobrazeno hlavní menu a program očekává vstup. V seznamu je zadán minimálně jeden úkol.
+        Kroky testu:
+            1. Spustit program
+            2. Zadat "3" a potvrdit klávesou "Enter"
+            3. Zadat "jedna" a potvrdit klávesou "Enter"
+        Očekávaný výsledek: Zobrazí se hláška "Zadej prosím platné číslo.", znovu se zobrazí hlavní menu a program očekává nový vstup.
+        Skutečný výsledek: Zobrazila se hláška "Zadej prosím platné číslo.", zobrazilo se hlavní menu a program očekává nový vstup.
+        Stav ( Pass / Fail ): PASS
+        Poznámky: program musí správně reagovat na neočekávané vstupy 
+
